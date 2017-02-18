@@ -28,6 +28,8 @@ INSTALLED_APPS = (
 
 ### Examples
 
-- [Basic](example1/)
-- [Custom template](example2/)
-- [Different template](example3/)
+- [x] [Basic](example1/)
+- [x] [Custom template](example2/)
+- [x] [Different template](example3/)
+- [ ] Handling files
+- [ ] ModelForm
