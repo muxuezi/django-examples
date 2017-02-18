@@ -5,4 +5,4 @@ class ContactForm1(forms.Form):
     sender = forms.EmailField()
 
 class ContactForm2(forms.Form):
-    message = forms.CharField(widget=forms.Textarea)
+    message = forms.CharField(widget=forms.Textarea, required=False)
