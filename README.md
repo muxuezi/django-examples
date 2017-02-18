@@ -18,6 +18,7 @@ source venv/bin/activate
 
 ``` python
 # settings.py
+
 INSTALLED_APPS = (
     # ...
     'formtools',
@@ -29,3 +30,4 @@ INSTALLED_APPS = (
 
 - [Basic](example1/)
 - [Custom template](example2/)
+- [Different template](example3/)
