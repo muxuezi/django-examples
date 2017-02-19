@@ -1,11 +1,28 @@
 from django import forms
 
-class ContactForm1(forms.Form):
-    subject = forms.CharField(max_length=100)
-    sender = forms.EmailField()
+from .models import Contact
 
-class ContactForm2(forms.Form):
-    message = forms.CharField(widget=forms.Textarea, required=False)
+class ContactForm1(forms.ModelForm):
+    class Meta:
+        model = Contact
+        fields = ('subject', 'sender',)
+        widgets = {
+            'subject': forms.TextInput(),
+            'sender': forms.EmailInput()
+        }
 
-class ContactForm3(forms.Form):
-    files = forms.FileField(widget=forms.ClearableFileInput)
+class ContactForm2(forms.ModelForm):
+    class Meta:
+        model = Contact
+        fields = ('message',)
+        widgets = {
+            'message': forms.Textarea()
+        }
+
+class ContactForm3(forms.ModelForm):
+    class Meta:
+        model = Contact
+        fields = ('files',)
+        widgets = {
+            'message': forms.ClearableFileInput()
+        }

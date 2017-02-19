@@ -1,69 +1,90 @@
-# Handling files
+# ModelForm
 
 
-### 0. [basic](../example1/) / [custom template](../example2/) / [different template](../example3/)
+### 0. [basic](../example1/) / [custom template](../example2/) / [different template](../example3/) / [handling template](../example3/)
 
 
-### 1. add form and template
+### 1. add model
+
+``` python
+# contact/models.py
+
+from django.db import models
+
+class Contact(models.Model):
+    subject = models.CharField(max_length=200)
+    sender = models.CharField(max_length=200)
+    message = models.TextField(blank=True)
+    files = models.FileField(upload_to='files/%Y/%m/%d/')
+
+    def __str__(self):
+        return self.subject
+```
+
+
+### 2. edit form
 
 ``` python
 # contact/forms.py
 
-# ...
+from django import forms
 
-class ContactForm3(forms.Form):
-    files = forms.FileField(widget=forms.ClearableFileInput)
+from .models import Contact
+
+class ContactForm1(forms.ModelForm):
+    class Meta:
+        model = Contact
+        fields = ('subject', 'sender',)
+        widgets = {
+            'subject': forms.TextInput(),
+            'sender': forms.EmailInput()
+        }
+
+class ContactForm2(forms.ModelForm):
+    class Meta:
+        model = Contact
+        fields = ('message',)
+        widgets = {
+            'message': forms.Textarea()
+        }
+
+class ContactForm3(forms.ModelForm):
+    class Meta:
+        model = Contact
+        fields = ('files',)
+        widgets = {
+            'message': forms.ClearableFileInput()
+        }
 ```
+
+
+### 3. save data
 
 ``` python
 # contact/views.py
-
-# ...
-from contact.forms import ContactForm1, ContactForm2, ContactForm3
-
-FORMS = [
-    # ...
-    ('file', ContactForm3),
-]
-
-TEMPLATES = {
-    # ...
-    'file': 'contact_file.html'
-}
-```
-
-
-### 2. add `multipart/form-data` to template
-
-``` html
-<!-- template/contact_file.html -->
-
-<form enctype="multipart/form-data" action="" method="post">
-```
-
-
-### 3. add `file_storage` to WizardView subclass
-
-``` python
-# contact/views.py
-
-# ...
-from django.conf import settings
-from django.core.files.storage import FileSystemStorage
 
 # ...
 
 class ContactWizard(SessionWizardView):
     file_storage = FileSystemStorage(location=os.path.join(settings.MEDIA_ROOT, 'files_temp'))
-    # ...
-```
+    instance = None
 
+    def get_template_names(self):
+        return [TEMPLATES[self.steps.current]]
 
-### 4. add `MEDIA_ROOT` to settings
+    def get_form_instance(self, step):
+        """
+        get ModelForm
+        """
+        if self.instance is None:
+            self.instance = Contact()
+        return self.instance
 
-``` python
-# settings.py
+    def done(self, form_list, **kwargs):
 
-# ...
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+        self.instance.save() # save data
+
+        return render(self.request, 'done.html', {
+            'form_data': [form.cleaned_data for form in form_list]
+        })
 ```

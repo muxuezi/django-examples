@@ -32,4 +32,4 @@ INSTALLED_APPS = (
 - [x] [Custom template](example2/)
 - [x] [Different template](example3/)
 - [x] [Handling files](example4/)
-- [ ] ModelForm
+- [x] [ModelForm](example5/)
