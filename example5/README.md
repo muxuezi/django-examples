@@ -1,7 +1,7 @@
 # ModelForm
 
 
-### 0. [basic](../example1/) / [custom template](../example2/) / [different template](../example3/) / [handling template](../example3/)
+### 0. [basic](../example1/) / [custom template](../example2/) / [different template](../example3/) / [handling template](../example4/)
 
 
 ### 1. add model
@@ -88,3 +88,8 @@ class ContactWizard(SessionWizardView):
             'form_data': [form.cleaned_data for form in form_list]
         })
 ```
+
+
+### 4. commit
+
+[84fd26c26f148809aaeba1907e5849e6fa470cee](https://github.com/mittya/django-formwizard-examples/commit/84fd26c26f148809aaeba1907e5849e6fa470cee)
