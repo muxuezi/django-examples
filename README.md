@@ -1,6 +1,6 @@
 # Django Form Wizard Examples
 
-> django-formtools Doc: https://django-formtools.readthedocs.io/
+> django-formtools Doc: https://django-formtools.readthedocs.io
 
 
 ### Environment
@@ -9,8 +9,7 @@
 $ virtualenv venv --python=python3.6
 $ source venv/bin/activate
 
-(venv) $ pip install django
-(venv) $ pip install django-formtools
+(venv) $ pip install -r requirements.txt
 ```
 
 
@@ -28,8 +27,12 @@ INSTALLED_APPS = (
 
 ### Examples
 
-- [x] [Basic](example1-basic/)
-- [x] [Custom template](example2-custom-template/)
-- [x] [Different template](example3-different-template/)
-- [x] [Handling files](example4-handling-files/)
-- [x] [ModelForm](example5-modelform/)
+[Basic](example1-basic/)
+
+[Custom template](example2-custom-template/)
+
+[Different template](example3-different-template/)
+
+[Handling files](example4-handling-files/)
+
+[ModelForm](example5-modelform/)
