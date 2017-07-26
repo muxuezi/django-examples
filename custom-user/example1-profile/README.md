@@ -3,7 +3,7 @@
 > 不会在创建用户时自动创建一对一链接的 Model，在后台填写时才会创建
 
 
-#### 1. 添加用户扩展 model
+### 1. 添加用户扩展 model
 
 ``` python
 # accounts/models.py
@@ -17,7 +17,7 @@ class Employee(models.Model):
     department = models.CharField(max_length=100)
 ```
 
-#### 2. 将用户扩展添加到后台 admin
+### 2. 将用户扩展添加到后台 admin
 
 ``` python
 # accounts/admin.py
