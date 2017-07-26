@@ -6,10 +6,10 @@
 ### Environment
 
 ``` bash
-$ virtualenv venv --python=python3.6
-$ source venv/bin/activate
+$ virtualenv env --python=python3.6
+$ source env/bin/activate
 
-(venv) $ pip install -r requirements.txt
+(env) $ pip install -r requirements.txt
 ```
 
 
