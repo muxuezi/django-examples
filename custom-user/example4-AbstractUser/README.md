@@ -1,4 +1,4 @@
-## 自定义替换现有用户模型（AbstractUser）
+## 重写用户模型：在开始创建项目时自定义用户模型（AbstractUser）
 
 > 必须在项目创建时使用自定义用户，也就是在 migrate 前先创建 User Model  
 > 默认后台不显示扩展模型  

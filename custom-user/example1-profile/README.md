@@ -1,6 +1,8 @@
-# 使用 `OneToOneField` 来扩展默认 `User Model`
+# 扩展现有的用户模型：OneToOneField
 
-> 不会在创建用户时自动创建一对一链接的 Model，在后台填写时才会创建
+- 存储在已有的 `User` 模型里
+- `Profile Model`：通常存储用户的非验证性（non-auth）资料
+- 不会在用户创建时自动创建一对一链接的 Model 的数据，在后台填写时才会创建
 
 
 ### 1. 添加用户扩展 model
