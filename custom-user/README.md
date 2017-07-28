@@ -25,8 +25,8 @@ python manage.py migrate
 
 ## 重写用户模型
 
-- [新项目开始时，修改原 User，继承 AbstractUser](example4-AbstractUser/)
-- [项目中期，完全抛弃原 User，继承 AbstractBaseUser](example5-AbstractBaseUser/)
+- [修改原 User，继承 AbstractUser](example4-AbstractUser/)
+- [完全抛弃原 User，继承 AbstractBaseUser](example5-AbstractBaseUser/)
 
 
 ## 代理模型

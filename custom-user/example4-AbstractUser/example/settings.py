@@ -102,6 +102,8 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
+# 自定义用户模型
+
 AUTH_USER_MODEL = 'accounts.User'
 
 
