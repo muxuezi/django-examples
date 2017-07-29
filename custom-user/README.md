@@ -20,7 +20,7 @@ python manage.py migrate
 
 - [Profile Model 1](example1-profile/)
 - [Profile Model 2](example2-profile-auto/)
-- [Profile Model 3](example1-profile-register/)
+- [Profile Model 3](example3-profile-register/)
 
 
 ## 重写用户模型
