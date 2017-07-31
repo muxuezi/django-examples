@@ -4,7 +4,7 @@
 > 可提供包括默认排序、自定义管理器及自定义模型的方法。  
 
 
-1. 新建代理模型
+### 1. 新建代理模型
 
 ``` python
 from django.db import models
@@ -27,7 +27,7 @@ class Person(User):
 ```
 
 
-2. 新建几条数据，运行下面方法，得到不同排序的用户
+### 2. 新建几条数据，运行下面方法，得到不同排序的用户
 
 ``` command
 ./manager.py shell

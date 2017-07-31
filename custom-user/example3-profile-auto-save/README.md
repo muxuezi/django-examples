@@ -1,6 +1,5 @@
 # 自动保存用户扩展模型
 
-
 http://127.0.0.1:8000/accounts/register/
 
 
