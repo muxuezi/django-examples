@@ -27,4 +27,6 @@ python manage.py migrate
 - [AbstractBaseUser](example5-AbstractBaseUser/)
 
 
-## 3. [Proxy model](example6-proxy/)
+## 3. Proxy model
+
+- [example](example6-proxy/)
