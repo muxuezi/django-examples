@@ -14,23 +14,17 @@ python manage.py migrate
 ```
 
 
-## 扩展现有用户模型
+## 1. Extending the existing User model
 
-> 在新表中添加字段，不破坏原 User
-
-- [Profile Model 1](example1-profile/)
-- [Profile Model 2](example2-profile-auto/)
-- [Profile Model 3](example3-profile-register/)
+- [Profile model](example1-profile/)
+- [Profile model: auto create](example2-profile-auto-create/)
+- [Profile model: auto save](example3-profile-auto-save/)
 
 
-## 重写用户模型
+## 2. Substituting a custom User model
 
-- [修改原 User，继承 AbstractUser](example4-AbstractUser/)
-- [完全抛弃原 User，继承 AbstractBaseUser](example5-AbstractBaseUser/)
+- [AbstractUser](example4-AbstractUser/)
+- [AbstractBaseUser](example5-AbstractBaseUser/)
 
 
-## 代理模型
-
-> 只是行为改变，不对数据存储改变使用代理模型。可提供包括默认排序、自定义管理器及自定义模型的方法。
-
-- Proxy Models
+## 3. [Proxy model](example6-proxy/)

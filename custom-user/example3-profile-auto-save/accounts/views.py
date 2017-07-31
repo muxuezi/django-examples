@@ -20,11 +20,12 @@ class UserRegisterView(View):
             user = User.objects.create_user(username=form.cleaned_data['username'],
                                             password=form.cleaned_data['password'])
             user.is_active = True
-            user.save()
-
-            # 保存用户扩展
             user.employee.department = form.cleaned_data['department']
-            user.employee.save()
+
+            # 此处无需 user.employee.save() 操作保存，在 model 中已设置了自动保存
+            # 最后只需 user.save() 即可
+
+            user.save()
 
             messages.success(request, 'Success')
 
