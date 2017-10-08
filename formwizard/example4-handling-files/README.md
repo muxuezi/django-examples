@@ -67,3 +67,22 @@ class ContactWizard(SessionWizardView):
 # ...
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 ```
+
+
+
+### 5. other
+
+上传文件临时位置会自动删除，但某些特定操作会失效，所以有必要做删除处理（[link Tip #2](http://www.tivix.com/blog/django-form-wizard/)）
+
+``` python
+# views.py
+
+class MyFormWizard(SessionWizardView):
+    location = os.path.join(settings.MEDIA_ROOT, 'temp', 'files')
+    file_storage = FileSystemStorage(location)
+
+    def done(self, form_list, **kwargs):
+        upload_file = form_list[0].cleaned_data['my_file']
+        # ...
+        self.file_storage.delete(upload_file.name)
+```

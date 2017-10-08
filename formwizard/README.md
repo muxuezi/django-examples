@@ -32,3 +32,12 @@ INSTALLED_APPS = (
 - [Different template](example3-different-template/)
 - [Handling files](example4-handling-files/)
 - [ModelForm](example5-modelform/)
+
+
+
+### Links
+
+- http://www.tivix.com/blog/django-form-wizard
+- https://www.youtube.com/watch?v=fSnBF-BmccQ
+- https://chriskief.com/2013/05/24/django-form-wizard-and-getting-data-from-previous-steps
+- http://blog.hayleyanderson.us/2015/07/26/passing-information-between-django-form-wizard-steps
