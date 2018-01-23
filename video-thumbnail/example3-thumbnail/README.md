@@ -68,7 +68,7 @@ sudo apt-get install rabbitmq-server
 
 ### 7. 运行 Celery Worker
 
-另开一个命令窗口运行（之后会让此命令在系统后台守护进程中运行）
+#### 7.1 另开一个命令窗口运行
 
 http://docs.celeryproject.org/en/latest/getting-started/first-steps-with-celery.html#running-the-celery-worker-server
 
@@ -76,6 +76,10 @@ http://docs.celeryproject.org/en/latest/getting-started/first-steps-with-celery.
 # example 是项目名
 (venv) celery -A example worker --loglevel=info
 ```
+
+#### 7.2 在系统后台守护进程中运行
+
+[Supervisor 后台运行 Celery](supervisord/)
 
 
 ### 8. 使用
