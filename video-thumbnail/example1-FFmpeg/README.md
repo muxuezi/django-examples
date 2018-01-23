@@ -25,12 +25,12 @@ ffmpeg -i example.mp4 -vf fps=1 out-%d.png
 ```
 
 
-### 3. subprocess
+### 3-A. subprocess
 
 使用 Python 的 subprocess 调用 ffmpeg 命令生成缩略图
 
 
-### 4. ffmpy
+### 3-B. ffmpy
 
 http://ffmpy.readthedocs.io
 
