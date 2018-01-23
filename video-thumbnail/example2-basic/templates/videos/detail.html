@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <article>
+    <video controls preload="auto">
+      <source src="/media/{{ detail.video }}" type='video/mp4'>
+    </video>
+
+    <h2>{{ detail.title }}</h2>
+    <p>Date：{{ detail.created_at|date:"Y-m-d" }}</p>
+  </article>
+{% endblock %}

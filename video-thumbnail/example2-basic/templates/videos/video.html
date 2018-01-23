@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <style>
+    .video {
+      display: inline-block;
+      vertical-align: top;
+      width: 210px;
+      text-align: center;
+    }
+    .video video {
+      width: 100%;
+    }
+  </style>
+
+  <section>
+    {% for v in video_list %}
+      <div class="video">
+        <a href="{% url 'detail_video' pk=v.pk %}">
+          <video>
+            <source src="/media/{{ v.video }}" type='video/mp4'>
+          </video>
+        </a>
+        <p>{{ v.title }}</p>
+      </div>
+    {% empty %}
+      <div>No video</div>
+    {% endfor %}
+  </section>
+{% endblock %}
