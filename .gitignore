@@ -1,6 +1,6 @@
 .vscode/
-*.pyc
-db.sqlite3
+
 __pycache__
-env/
-media/
+*.pyc
+
+db.sqlite3
