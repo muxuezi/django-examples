@@ -1,7 +1,5 @@
 # FFmpeg 生成缩略图
 
-> Ubuntu Server 14.04
-
 
 ### 1. 安装 FFmpeg
 
