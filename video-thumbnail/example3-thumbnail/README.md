@@ -85,3 +85,10 @@ http://docs.celeryproject.org/en/latest/getting-started/first-steps-with-celery.
 ### 8. 使用
 
 http://192.168.33.10:8000/videos
+
+
+### 9. Git commit
+
+> 添加 Celery 任务：[a9330f51c6cfedc768b646f9a02d4ac9b1001857](https://github.com/mittya/django-examples/commit/a9330f51c6cfedc768b646f9a02d4ac9b1001857)
+
+> Supervisor 后台运行任务：[c36ac9df5b7483393496d79e123dec5894ed8fb2](https://github.com/mittya/django-examples/commit/c36ac9df5b7483393496d79e123dec5894ed8fb2)
