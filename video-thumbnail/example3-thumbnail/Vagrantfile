@@ -1,0 +1,28 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure(2) do |config|
+
+  config.vm.box = "ubuntu/trusty64"
+  config.vm.box_check_update = false
+
+  config.vm.network "private_network", ip: "192.168.33.10"
+
+  config.vm.provider "virtualbox" do |vb|
+    vb.memory = "1024"
+  end
+
+  config.vm.provision "shell", inline: <<-SHELL
+    echo "Use 163 mirrors."
+    echo "deb http://mirrors.163.com/ubuntu/ trusty main restricted universe multiverse" > /etc/apt/sources.list
+    echo "deb http://mirrors.163.com/ubuntu/ trusty-security main restricted universe multiverse" >> /etc/apt/sources.list
+    echo "deb http://mirrors.163.com/ubuntu/ trusty-updates main restricted universe multiverse" >> /etc/apt/sources.list
+    sudo apt-get update
+    sudo apt-get install -y curl
+    curl -sSL https://git.io/vHPi2 | bash
+    curl -sSL https://git.io/vHPiK | bash
+    curl -sSL https://git.io/vHPir | bash
+    curl -sSL https://git.io/vHPi4 | bash
+  SHELL
+
+end

@@ -1,4 +1,83 @@
-# Django videos thumbnail app
+# Django Videos Thumbnail
 
 
-http://127.0.0.1:8000/videos
+### 1. 环境
+
+使用 [Vagrant](https://www.vagrantup.com) 本地虚拟服务器 Ubuntu Server 14.04
+
+```bash
+vagrant up
+vagrant ssh
+
+# 进入开发目录，虚拟 Python 环境
+cd /vagrant
+virtualenv venv --python=python3.6
+source venv/bin/activate
+```
+
+
+### 2. 安装 FFmpeg
+
+```bash
+# http://ffmpeg.org/download.html
+sudo add-apt-repository ppa:mc3man/trusty-media
+sudo apt-get update
+sudo apt-get install ffmpeg
+```
+
+
+### 3. 安装 Pillow
+
+Django models 中使用了 ImageField
+
+```bash
+(venv) pip install Pillow
+```
+
+
+### 4. 安装 Celery
+
+我们上传视频后在后台运行任务生成缩略图。发邮件时也适合使用 Celery，不必让用户等待程序操作完才能继续操作。
+
+```bash
+# 进入自己的 Python 虚拟环境
+(venv) pip install Celery
+```
+
+
+### 5. 安装 Celery Broker（RabbitMQ）
+
+Celery 发送和接收消息，需要一个 Broker
+
+http://docs.celeryproject.org/en/latest/getting-started/first-steps-with-celery.html#choosing-a-broker
+
+```bash
+sudo apt-get install rabbitmq-server
+```
+
+
+### 6. 运行项目
+
+```bash
+./manage.py makemigrations videos
+./manage.py migrate
+./manage.py createsuperuser
+./manage.py runserver 0.0.0.0:8000
+```
+
+
+### 7. 运行 Celery Worker
+
+另开一个命令窗口运行（之后会让此命令在系统后台守护进程中运行）
+
+http://docs.celeryproject.org/en/latest/getting-started/first-steps-with-celery.html#running-the-celery-worker-server
+
+```bash
+# example 是项目名
+(venv) celery -A example worker --loglevel=info
+```
+
+
+### 8. 使用
+
+http://192.168.33.10:8000/videos

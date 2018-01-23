@@ -17,9 +17,7 @@
     {% for v in video_list %}
       <div class="video">
         <a href="{% url 'detail_video' pk=v.pk %}">
-          <video>
-            <source src="/media/{{ v.video }}" type='video/mp4'>
-          </video>
+          <img src="/media/{{ v.video_thumb }}" width="210" height="120">
         </a>
         <p>{{ v.title }}</p>
       </div>
