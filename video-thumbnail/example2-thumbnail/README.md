@@ -87,7 +87,17 @@ http://docs.celeryproject.org/en/latest/getting-started/first-steps-with-celery.
 http://192.168.33.10:8000/videos
 
 
-### 9. Git commit
+### 9. 添加自定义设置
+
+在 `settings.py` 中配置 Celery
+
+```bash
+# 安装依赖
+(venv) pip install sqlalchemy
+```
+
+
+### 10. Git commit
 
 > 添加 Celery 任务：[a9330f51c6cfedc768b646f9a02d4ac9b1001857](https://github.com/mittya/django-examples/commit/a9330f51c6cfedc768b646f9a02d4ac9b1001857)
 
