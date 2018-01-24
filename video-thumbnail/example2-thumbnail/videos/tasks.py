@@ -5,6 +5,7 @@ import time
 import subprocess
 
 from celery import task
+from ffmpy import FFmpeg
 
 
 @task
@@ -33,8 +34,16 @@ def set_video_thumb(name):
         if not os.path.exists('%s/media/video/thumbnail' % current_path):
             os.mkdir('%s/media/video/thumbnail' % current_path)
 
-        # 生成缩略图
-        subprocess.call('ffmpeg -y -i %s -ss 00:00:05 -vframes 1 -s 210x120 %s' % (input_file_path, output_file_path), shell=True)
+        # 方案一：命令方法直接生成缩略图
+        # subprocess.call('ffmpeg -y -i %s -ss 00:00:05 -vframes 1 -s 210x120 %s' % (input_file_path, output_file_path), shell=True)
+
+        # 方案二：ffmpy 生成单个截图
+        ff = FFmpeg(
+            global_options=['-y'],
+            inputs={input_file_path: None},
+            outputs={output_file_path: ['-ss', '00:00:05', '-vframes', '1']}
+        )
+        ff.run()
 
     except Exception as e:
         pass
