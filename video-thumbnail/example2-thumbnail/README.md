@@ -102,3 +102,4 @@ http://192.168.33.10:8000/videos
 > 添加 Celery 任务：[a9330f5](https://github.com/mittya/django-examples/commit/a9330f51c6cfedc768b646f9a02d4ac9b1001857)  
 > Supervisor 后台运行任务：[c36ac9d](https://github.com/mittya/django-examples/commit/c36ac9df5b7483393496d79e123dec5894ed8fb2)  
 > 添加自定义设置： [49e7939](https://github.com/mittya/django-examples/commit/49e79392ecaf5138ebea3e024f81f09430ef4de7)  
+> 中文视频名转拼音： [6deb201](https://github.com/mittya/django-examples/commit/6deb201aaba4d1c9db1a541ddbcef26e950efb29)  
