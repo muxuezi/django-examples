@@ -24,10 +24,10 @@ def set_video_thumb(name):
         if '.mp4' in filename:
             filename = filename.replace('.mp4', '')
 
-        output_file_path = '%s/media/video/thumbnail/%s.png' % (current_path, filename)
+        output_file_path = '%s/media/video/thumbnail/%s.jpg' % (current_path, filename)
 
         # 保存缩略图地址
-        v.video_thumb = 'video/thumbnail/%s.png' % filename
+        v.video_thumb = 'video/thumbnail/%s.jpg' % filename
         v.save()
 
         # 创建缩略图文件夹
@@ -35,13 +35,18 @@ def set_video_thumb(name):
             os.mkdir('%s/media/video/thumbnail' % current_path)
 
         # 方案一：命令方法直接生成缩略图
-        # subprocess.call('ffmpeg -y -i %s -ss 00:00:05 -vframes 1 -s 210x120 %s' % (input_file_path, output_file_path), shell=True)
+        # subprocess.call('ffmpeg -y -i %s -ss 00:00:05 -vframes 1 -vf "scale=200:120:force_original_aspect_ratio=increase,crop=200:120" -vcodec mjpeg %s' % (input_file_path, output_file_path), shell=True)
 
         # 方案二：ffmpy 生成单个截图
         ff = FFmpeg(
             global_options=['-y'],
             inputs={input_file_path: None},
-            outputs={output_file_path: ['-ss', '00:00:05', '-vframes', '1']}
+            outputs={output_file_path: [
+                '-ss', '00:00:05',
+                '-vframes', '1',
+                '-vf', 'scale=200:120:force_original_aspect_ratio=increase,crop=200:120',
+                '-vcodec', 'mjpeg'
+            ]}
         )
         ff.run()
 
