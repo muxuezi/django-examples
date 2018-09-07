@@ -16,16 +16,16 @@ $ brew install pipenv
 $ pipenv install
 ```
 
-### Edit mirror
+### Edit mirror (if you need)
 
-```
+``` diff
 # Pipfile
 
 - url = "https://pypi.org/simple"
 + url = "https://pypi.tuna.tsinghua.edu.cn/simple"
 ```
 
-```
+``` diff
 # Pipfile.lock
 
 - "url": "https://pypi.org/simple",
