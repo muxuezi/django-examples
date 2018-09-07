@@ -44,10 +44,10 @@ $ pipenv shell
 ```
 
 ``` bash
-$ django-admin startproject example
+(env-name) $ django-admin startproject example
 
-$ cd example
+(env-name) $ cd example
 
-$ python manage.py migrate
-$ python manage.py runserver
+(env-name) $ python manage.py migrate
+(env-name) $ python manage.py runserver
 ```
